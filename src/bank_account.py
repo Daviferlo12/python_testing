@@ -1,8 +1,12 @@
 import requests
 import os
+import sys
 # from dotenv import load_dotenv
 from datetime import datetime
 from src.exceptions import InsuficientFoundError, WithdrawalTimeRestrictionError, WithdrawalWeekendRestriccion
+# Agregar la carpeta raíz del proyecto al PYTHONPATH
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 
 class BankAccount:
     def __init__(self, balance=0, log_file=None):

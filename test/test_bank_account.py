@@ -21,7 +21,7 @@ class BankAccountTests(unittest.TestCase):
     def test_withdraw(self, mock_datetime):
         mock_today = MagicMock()
         mock_today.weekday.return_value = 1
-        mock_today.hour = 4
+        mock_today.hour = 15
         mock_datetime.now.return_value = mock_today
         self.assertEqual(self.account.withdraw(500), 500, "El balance no es igual")
            
