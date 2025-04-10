@@ -1,17 +1,17 @@
 import requests
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from datetime import datetime
 from src.exceptions import InsuficientFoundError, WithdrawalTimeRestrictionError, WithdrawalWeekendRestriccion
 
 class BankAccount:
     def __init__(self, balance=0, log_file=None):
-        load_dotenv()
+        # load_dotenv()
         self.balance = balance
         self.log_file = log_file
         self._log_transaccion("Cuenta creada")
-        self.api_key = os.getenv("api_key_currency")
-        self.url_base = os.getenv("url_base")
+        self.api_key = "88a7d9a458c62c189d481541"
+        self.url_base = "https://v6.exchangerate-api.com/v6/"
         
     def _log_transaccion(self, message):
         if self.log_file:
