@@ -16,8 +16,13 @@ class BankAccountTests(unittest.TestCase):
     
     def test_deposit(self):
         self.assertEqual(self.account.deposit(500), 1500, "El balance no es igual") 
-        
-    def test_withdraw(self):
+    
+    @patch("src.bank_account.datetime")
+    def test_withdraw(self, mock_datetime):
+        mock_today = MagicMock()
+        mock_today.weekday.return_value = 1
+        mock_today.hour = 4
+        mock_datetime.now.return_value = mock_today
         self.assertEqual(self.account.withdraw(500), 500, "El balance no es igual")
            
     def test_get_balance(self):

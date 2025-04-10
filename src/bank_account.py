@@ -40,7 +40,8 @@ class BankAccount:
         if amount > self.balance:
             raise InsuficientFoundError(
                 "The amount to retire exceeds de current balence."
-            )    
+            )  
+              
         if amount > 0:
             self.balance -= amount
             self._log_transaccion(f"Retired : {amount}. New Balance {self.balance}")
