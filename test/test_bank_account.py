@@ -49,7 +49,12 @@ class BankAccountTests(unittest.TestCase):
             other_account = BankAccount(balance=2000, log_file="other_account_log.txt")
             self.account.transfer(2000, other_account)
     
-    def test_withdraw_raises_error_when_insuficient_funds(self):
+    @patch("src.bank_account.datetime")
+    def test_withdraw_raises_error_when_insuficient_funds(self, mock_datetime):
+        mock_today = MagicMock()
+        mock_today.weekday.return_value = 1
+        mock_today.hour = 15
+        mock_datetime.now.return_value = mock_today
         with self.assertRaises(InsuficientFoundError):
             self.account.withdraw(3000)
     
