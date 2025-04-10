@@ -1,7 +1,7 @@
 import requests
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
-from pprint import pprint
+# from pprint import pprint
 
 # funcion a testear
 def calculate_total(products):
@@ -51,8 +51,7 @@ def money_conversion(money_from, money_to, mount, url, key):
     response = requests.get(url)
     return response.json()['conversion_result']
 
-load_dotenv("./.env")   
+# load_dotenv("./.env")   
 
-api_key = os.getenv("api_key_currency")
-url_base = os.getenv("url_base")
-pprint(money_conversion("COP", "USD",2000, url_base, api_key))
+# api_key = os.getenv("api_key_currency")
+# url_base = os.getenv("url_base")
